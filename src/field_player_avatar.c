@@ -513,7 +513,13 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
         return;
     }
 
-    if ((heldKeys & B_BUTTON) && FlagGet(FLAG_SYS_B_DASH)
+
+    if (
+        (
+            (gSaveBlock2Ptr->optionsRunMode == OPTIONS_RUN_MODE_ALWAYS)
+            || (gSaveBlock2Ptr->optionsRunMode == OPTIONS_RUN_MODE_TOGGLE && gSaveBlock2Ptr->optionsRunModeRunning)
+            || (gSaveBlock2Ptr->optionsRunMode == OPTIONS_RUN_MODE_HOLD && (heldKeys & B_BUTTON))
+        )
         && !IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior))
     {
         if (PlayerIsMovingOnRockStairs(direction))

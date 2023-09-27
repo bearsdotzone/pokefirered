@@ -1405,7 +1405,10 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
             DismissMapNamePopup();
         }
         else
-        {
+        {   
+            if(newKeys & B_BUTTON)
+                if(gSaveBlock2Ptr->optionsRunMode == OPTIONS_RUN_MODE_TOGGLE)
+                    gSaveBlock2Ptr->optionsRunModeRunning = !gSaveBlock2Ptr->optionsRunModeRunning;
             player_step(fieldInput.dpadDirection, newKeys, heldKeys);
         }
     }
