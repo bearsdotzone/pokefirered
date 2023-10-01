@@ -250,6 +250,16 @@ static void CB2_CheckMail(void)
     ReadMail(&mail, CB2_BagMenuFromStartMenu, FALSE);
 }
 
+void FieldUseFunc_Exp_All(u8 taskId)
+{
+    gSaveBlock2Ptr->optionsExpAll = !gSaveBlock2Ptr->optionsExpAll;
+
+    if(gSaveBlock2Ptr->optionsExpAll)
+        DisplayItemMessageInCurrentContext(taskId, gTasks[taskId].data[3], FONT_MALE, gText_ExpAllEnabled);
+    else
+        DisplayItemMessageInCurrentContext(taskId, gTasks[taskId].data[3], FONT_MALE, gText_ExpAllDisabled);
+}
+
 void FieldUseFunc_Bike(u8 taskId)
 {
     s16 x, y;

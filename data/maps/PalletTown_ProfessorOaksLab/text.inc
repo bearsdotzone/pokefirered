@@ -186,6 +186,9 @@ PalletTown_ProfessorOaksLab_Text_OakCatchMonsForDataTakeThese::
 PalletTown_ProfessorOaksLab_Text_ReceivedFivePokeBalls::
     .string "{PLAYER} received five POKé BALLS.$"
 
+PalletTown_ProfessorOaksLab_Text_GiveExpAll::
+    .string "{PLAYER} received EXP. ALL.$"
+
 PalletTown_ProfessorOaksLab_Text_OakExplainCatching::
     .string "When a wild POKéMON appears,\n"
     .string "it's fair game.\p"

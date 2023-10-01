@@ -271,7 +271,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_0FA]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_0FB]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_0FC]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
-    [ITEM_0FD]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    [ITEM_0FD]            = {gItemIcon_ExpShare, gItemIconPalette_ExpShare},
     // Contest hold items
     [ITEM_RED_SCARF]      = {gItemIcon_Scarf, gItemIconPalette_RedScarf},
     [ITEM_BLUE_SCARF]     = {gItemIcon_Scarf, gItemIconPalette_BlueScarf},

@@ -262,6 +262,7 @@
 #define ITEM_0FB 251
 #define ITEM_0FC 252
 #define ITEM_0FD 253
+#define ITEM_EXP_ALL 253
 #define ITEM_RED_SCARF 254
 #define ITEM_BLUE_SCARF 255
 #define ITEM_PINK_SCARF 256
