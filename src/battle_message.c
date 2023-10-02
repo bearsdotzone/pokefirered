@@ -2708,18 +2708,6 @@ static const struct BattleWindowText sTextOnWindowsInfo_Normal[] = {
         .fgColor = 2,
         .bgColor = 1,
         .shadowColor = 3,
-    },
-    [B_WIN_TYPE_EFFECTIVENESS] = {
-        .fillValue = PIXEL_FILL(0xe),
-        .fontId = FONT_NORMAL_COPY_1,
-        .x = 10,
-        .y = 2,
-        .letterSpacing = 0,
-        .lineSpacing = 2,
-        .speed = 0,
-        .fgColor = 12,
-        .bgColor = 14,
-        .shadowColor = 11,
     }
 };
 
