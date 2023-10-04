@@ -7,6 +7,7 @@
 #include "m4a.h"
 #include "party_menu.h"
 #include "pokeball.h"
+#include "pokedex.h"
 #include "strings.h"
 #include "pokemon_special_anim.h"
 #include "task.h"
@@ -1397,18 +1398,28 @@ static void MoveSelectionDisplayPpString(void)
 static void MoveSelectionDisplayEffectiveness(void)
 {
     struct ChooseMoveStruct *moveInfo;
-    u8 EffectivenessAtCursor;
-
-    moveInfo = (struct ChooseMoveStruct *)(&gBattleBufferA[gActiveBattler][4]);
+    u8 EffectivenessAtCursor, SelectedPokemon;
 
     if(IsDoubleBattle() && gMultiUsePlayerCursor < 4)
     {
-        EffectivenessAtCursor = TypeCalc(moveInfo->moves[gMoveSelectionCursor[gActiveBattler]], gActiveBattler, GetBattlerPosition(gMultiUsePlayerCursor));
+        SelectedPokemon = gMultiUsePlayerCursor;
     }
     else
     {
-        EffectivenessAtCursor = TypeCalc(moveInfo->moves[gMoveSelectionCursor[gActiveBattler]], gActiveBattler, GetBattlerPosition(1));
+        SelectedPokemon = 1;
     }
+
+    // TODO On first encounter, don't display type effectiveness
+
+    if(!(GetSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[SelectedPokemon].species), FLAG_GET_SEEN) & 1))
+    {
+        StringCopy(gDisplayedStringBattle, gText_Confusion);
+        BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_TYPE_EFFECTIVENESS);
+        return;
+    }
+
+    moveInfo = (struct ChooseMoveStruct *)(&gBattleBufferA[gActiveBattler][4]);
+    EffectivenessAtCursor = TypeCalc(moveInfo->moves[gMoveSelectionCursor[gActiveBattler]], gActiveBattler, GetBattlerPosition(SelectedPokemon));
 
     if (EffectivenessAtCursor & MOVE_RESULT_SUPER_EFFECTIVE)
         StringCopy(gDisplayedStringBattle, gText_SuperEffective);
