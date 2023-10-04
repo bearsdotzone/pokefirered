@@ -1329,10 +1329,10 @@ const u8 gText_BattleWallyName[] = _("ミツル");
 const u8 gText_Win[] = _("{HIGHLIGHT 0}Win");
 const u8 gText_Loss[] = _("{HIGHLIGHT 0}Loss");
 const u8 gText_Draw[] = _("{HIGHLIGHT 0}Draw");
-const u8 gText_SuperEffective[] = _("SUPER");
-const u8 gText_NotEffective[] = _("NOT VERY");
-const u8 gText_NoEffect[] = _("NO");
-const u8 gText_Effective[] = _("EFFECTIVE");
+const u8 gText_SuperEffective[] = _("Super Effective");
+const u8 gText_NotEffective[] = _("Not Very Effective");
+const u8 gText_NoEffect[] = _("No Effect");
+const u8 gText_Effective[] = _("Effective");
 static const u8 sText_SpaceIs[] = _(" is");
 static const u8 sText_ApostropheS[] = _("'s");
 const u8 gText_ANormalMove[] = _("a NORMAL move");
@@ -2708,6 +2708,18 @@ static const struct BattleWindowText sTextOnWindowsInfo_Normal[] = {
         .fgColor = 2,
         .bgColor = 1,
         .shadowColor = 3,
+    },
+    [B_WIN_TYPE_EFFECTIVENESS] = {
+        .fillValue = PIXEL_FILL(0x0),
+        .fontId = FONT_SMALL,
+        .x = 2,
+        .y = 2,
+        .letterSpacing = 0,
+        .lineSpacing = 2,
+        .speed = 0,
+        .fgColor = 12,
+        .bgColor = 0,
+        .shadowColor = 11,
     }
 };
 

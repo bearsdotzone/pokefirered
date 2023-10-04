@@ -1419,7 +1419,7 @@ static void MoveSelectionDisplayEffectiveness(void)
     else
         StringCopy(gDisplayedStringBattle, gText_Effective);
     
-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP);
+    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_TYPE_EFFECTIVENESS);
 }
 
 static void MoveSelectionDisplayPpNumber(void)
