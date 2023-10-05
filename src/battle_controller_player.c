@@ -1411,26 +1411,31 @@ static void MoveSelectionDisplayEffectiveness(void)
 
     // TODO On first encounter, don't display type effectiveness
 
-    if(!(GetSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[SelectedPokemon].species), FLAG_GET_SEEN) & 1))
-    {
-        StringCopy(gDisplayedStringBattle, gText_Confusion);
-        BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_TYPE_EFFECTIVENESS);
-        return;
-    }
+    // if(!(GetSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[SelectedPokemon].species), FLAG_GET_SEEN) & 1))
+    // {
+    //     StringCopy(gDisplayedStringBattle, gText_Confusion);
+    //     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_TYPE_EFFECTIVENESS);
+    //     return;
+    // }
+
+    BattlePutTextOnWindow(gExpandedPlaceholder_Empty, B_WIN_TYPE_EFFECTIVENESS);
 
     moveInfo = (struct ChooseMoveStruct *)(&gBattleBufferA[gActiveBattler][4]);
     EffectivenessAtCursor = TypeCalc(moveInfo->moves[gMoveSelectionCursor[gActiveBattler]], gActiveBattler, GetBattlerPosition(SelectedPokemon));
 
     if (EffectivenessAtCursor & MOVE_RESULT_SUPER_EFFECTIVE)
-        StringCopy(gDisplayedStringBattle, gText_SuperEffective);
+        // StringCopy(gDisplayedStringBattle, gText_SuperEffective);
+        BlitMenuBattleIcon(B_WIN_TYPE_EFFECTIVENESS, MENU_BATTLE_ICON_SUPER, 0, 0);
     else if (EffectivenessAtCursor & MOVE_RESULT_NOT_VERY_EFFECTIVE)
-        StringCopy(gDisplayedStringBattle, gText_NotEffective);
+        // StringCopy(gDisplayedStringBattle, gText_NotEffective);
+        BlitMenuBattleIcon(B_WIN_TYPE_EFFECTIVENESS, MENU_BATTLE_ICON_NOT, 0, 0);
     else if (EffectivenessAtCursor & MOVE_RESULT_NO_EFFECT)
-        StringCopy(gDisplayedStringBattle, gText_NoEffect);
+        // StringCopy(gDisplayedStringBattle, gText_NoEffect);
+        BlitMenuBattleIcon(B_WIN_TYPE_EFFECTIVENESS, MENU_BATTLE_ICON_NO_EFFECT, 0, 0);
     else
-        StringCopy(gDisplayedStringBattle, gText_Effective);
-    
-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_TYPE_EFFECTIVENESS);
+        // StringCopy(gDisplayedStringBattle, gText_Effective);
+        BlitMenuBattleIcon(B_WIN_TYPE_EFFECTIVENESS, MENU_BATTLE_ICON_EFFECTIVE, 0, 0);
+
 }
 
 static void MoveSelectionDisplayPpNumber(void)

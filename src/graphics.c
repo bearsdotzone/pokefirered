@@ -1141,6 +1141,8 @@ const u16 gMenuInfoElements1_Pal[] = INCBIN_U16("graphics/interface/dex_caught_p
 const u16 gMenuInfoElements2_Pal[] = INCBIN_U16("graphics/interface/pokemon_types.gbapal");
 const u8 gMenuInfoElements_Gfx[] = INCBIN_U8("graphics/interface/menu_info.4bpp");
 
+const u8 gBattleIcons[] = INCBIN_U8("graphics/battle_interface/icons.4bpp");
+
 const u16 gMoveRelearner_Pal[] = INCBIN_U16("graphics/interface/learn_move.gbapal");
 const u32 gMoveRelearner_Gfx[] = INCBIN_U32("graphics/interface/learn_move.4bpp.lz");
 const u32 gMoveRelearner_Tilemap[] = INCBIN_U32("graphics/interface/learn_move.bin.lz");

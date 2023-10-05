@@ -5,6 +5,7 @@
 #include "help_system.h"
 #include "task.h"
 #include "menu_helpers.h"
+#include "list_menu.h"
 #include "link.h"
 #include "overworld.h"
 #include "constants/songs.h"
@@ -2858,6 +2859,19 @@ static void PokeSum_PrintSelectedMoveStats(void)
     {
         if (sMonSummaryScreen->mode != PSS_MODE_SELECT_MOVE && sMoveSelectionCursorPos == 4)
             return;
+        
+        switch (gBattleMoves[ sMonSummaryScreen->moveIds[sMoveSelectionCursorPos]].category)
+        {
+            case MOVE_CATEGORY_PHYSICAL:
+                BlitMenuInfoIcon(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], MENU_INFO_ICON_PHYSICAL, 86, 2);
+                break;
+            case MOVE_CATEGORY_SPECIAL:
+                BlitMenuInfoIcon(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], MENU_INFO_ICON_SPECIAL, 86, 2);
+                break;
+            case MOVE_CATEGORY_STATUS:
+            default:
+                BlitMenuInfoIcon(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], MENU_INFO_ICON_STATUS, 86, 2);
+        }
 
         AddTextPrinterParameterized3(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], FONT_NORMAL,
                                      57, 1,
