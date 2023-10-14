@@ -4,3 +4,5 @@
 
 # todo
 * Type effectiveness in battle
+* reusable TMs
+* ask to use repel
