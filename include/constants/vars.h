@@ -192,6 +192,7 @@
 
 
 #define VAR_0x408C                 0x408C
+#define VAR_REPEL_TYPE_USED        0x408C
 #define VAR_0x408D                 0x408D
 #define VAR_0x408E                 0x408E
 #define VAR_0x408F                 0x408F

@@ -569,12 +569,28 @@ void FieldUseFunc_Repel(u8 taskId)
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_RepelEffectsLingered, Task_ReturnToBagFromContextMenu);
 }
 
+
+static void Task_UseRepelRepeat(u8 taskId);
+
+u32 UseRepelRepeat(void){
+    CreateTask(Task_UseRepelRepeat, 0xff);
+    return FALSE;
+}
+
+static void Task_UseRepelRepeat(u8 taskId)
+{
+    DebugPrintf("bears\n");
+    VarSet(VAR_REPEL_STEP_COUNT, ItemId_GetHoldEffectParam(VarGet(VAR_REPEL_TYPE_USED)));
+    DestroyTask(taskId);
+}
+
 static void Task_UseRepel(u8 taskId)
 {
     if (!IsSEPlaying())
     {
         ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, NULL, gSpecialVar_ItemId, 0xFFFF);
         VarSet(VAR_REPEL_STEP_COUNT, ItemId_GetHoldEffectParam(gSpecialVar_ItemId));
+        VarSet(VAR_REPEL_TYPE_USED, gSpecialVar_ItemId);
         RemoveUsedItem();
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gStringVar4, Task_ReturnToBagFromContextMenu);
     }
