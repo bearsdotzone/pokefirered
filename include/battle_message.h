@@ -256,4 +256,9 @@ extern const u8 gText_Win[];
 extern const u8 gText_Loss[];
 extern const u8 gText_Draw[];
 
+extern const u8 gText_SuperEffective[];
+extern const u8 gText_NotEffective[];
+extern const u8 gText_NoEffect[];
+extern const u8 gText_Effective[];
+
 #endif // GUARD_BATTLE_MESSAGE_H
