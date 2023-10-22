@@ -522,7 +522,10 @@ static const struct BattleInterfaceIcon sBattleInterfaceIcons[] =
 
 void BlitMenuBattleIcon(u8 windowId, u8 iconId, u16 x, u16 y)
 {
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(0x3));
     BlitBitmapRectToWindow(windowId, &gBattleIcons[sBattleInterfaceIcons[iconId].offset * TILE_SIZE_4BPP], 0, 0, 128, 128, x, y, sBattleInterfaceIcons[iconId].width, sBattleInterfaceIcons[iconId].height);
+    PutWindowTilemap(windowId);
+    CopyWindowToVram(windowId, COPYWIN_FULL);
 }
 // Unused
 static void Debug_DrawNumberPair(s16 num1, s16 num2, u16 *dest)
