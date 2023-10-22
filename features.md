@@ -6,4 +6,8 @@
 * TMs are reusable.
 
 # todo
+* Consider adjusting TM pricing to account for reusability.
 * Type effectiveness in battle
+* Automatically apply healing items to Pokemon
+* Option to rename a pokemon from the box
+* Rewrite EXP granting to not list all pokemon when using Exp. All, potentially implement BW awards.
