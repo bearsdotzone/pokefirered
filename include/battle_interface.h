@@ -25,6 +25,11 @@ enum
     HP_BAR_FULL,
 };
 
+#define MENU_BATTLE_ICON_SUPER                  0
+#define MENU_BATTLE_ICON_NOT                    1
+#define MENU_BATTLE_ICON_EFFECTIVE              2
+#define MENU_BATTLE_ICON_NO_EFFECT              3
+
 #define TAG_HEALTHBOX_PLAYER1_TILE              55039
 #define TAG_HEALTHBOX_PLAYER2_TILE              55040
 #define TAG_HEALTHBOX_OPPONENT1_TILE            55041
@@ -86,5 +91,8 @@ u8 GetHPBarLevel(s16 hp, s16 maxhp);
 void UpdateNickInHealthbox(u8 spriteId, struct Pokemon *mon);
 void TryAddPokeballIconToHealthbox(u8 spriteId, u8);
 s32 MoveBattleBar(u8 battler, u8 healthboxSpriteId, u8 whichBar, u8 arg3);
+
+void BlitMenuBattleIcon(u8 windowId, u8 iconId, u16 x, u16 y);
+static const struct BattleInterfaceIcon sBattleInterfaceIcons[];
 
 #endif // GUARD_BATTLE_INTERFACE_H

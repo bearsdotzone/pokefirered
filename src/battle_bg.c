@@ -205,7 +205,7 @@ static const struct WindowTemplate sStandardBattleWindowTemplates[] = {
     },
     [B_WIN_PP] = {
         .bg = 0,
-        .tilemapLeft = 21,
+        .tilemapLeft = 23,
         .tilemapTop = 55,
         .width = 3,
         .height = 2,
@@ -223,9 +223,9 @@ static const struct WindowTemplate sStandardBattleWindowTemplates[] = {
     },
     [B_WIN_PP_REMAINING] = {
         .bg = 0,
-        .tilemapLeft = 24,
+        .tilemapLeft = 25,
         .tilemapTop = 55,
-        .width = 5,
+        .width = 4,
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x2a6
@@ -367,11 +367,11 @@ static const struct WindowTemplate sStandardBattleWindowTemplates[] = {
     },
     [B_WIN_TYPE_EFFECTIVENESS] = {
         .bg = 0,
-        .tilemapLeft = 1,
-        .tilemapTop = 52,
-        .width = 12,
+        .tilemapLeft = 21,
+        .tilemapTop = 55,
+        .width = 2,
         .height = 2,
-        .paletteNum = 5,
+        .paletteNum = 8,
         .baseBlock = 0x2b0
     },
     DUMMY_WIN_TEMPLATE
