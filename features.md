@@ -6,7 +6,7 @@
 * TMs are reusable.
 
 # todo
-
+* Separate player pronouns from sprite
 * Type effectiveness in battle
 * Automatically apply healing items to Pokemon
 * Option to rename a pokemon from the box
