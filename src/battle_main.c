@@ -219,6 +219,7 @@ EWRAM_DATA struct MonSpritesGfx *gMonSpritesGfxPtr = NULL;
 EWRAM_DATA u16 gBattleMovePower = 0;
 EWRAM_DATA u16 gMoveToLearn = 0;
 EWRAM_DATA u8 gBattleMonForms[MAX_BATTLERS_COUNT] = {0};
+EWRAM_DATA u8 gSeenMask = 0;
 
 void (*gPreBattleCallback1)(void);
 void (*gBattleMainFunc)(void);
@@ -2552,6 +2553,28 @@ static void BattleIntroDrawTrainersOrMonsSprites(void)
 {
     u8 *ptr;
     s32 i;
+
+
+    gSeenMask = 0;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES_OR_EGG) == SPECIES_NONE
+            || GetMonData(&gEnemyParty[i], MON_DATA_SPECIES_OR_EGG) == SPECIES_EGG)
+        {
+            break;
+        }
+        else
+        {
+            if(!GetSetPokedexFlag(SpeciesToNationalPokedexNum(GetMonData(&gEnemyParty[i], MON_DATA_SPECIES_OR_EGG)), FLAG_GET_SEEN))
+            {
+                gSeenMask |= 1 << i;
+            }
+        }
+    }
+
+    // DebugPrintf("gEnemyPartyCount: %d", gEnemyPartyCount);
+    DebugPrintf("gSeenMask: %d", gSeenMask);
+
 
     if (gBattleControllerExecFlags)
         return;

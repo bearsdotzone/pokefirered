@@ -29,6 +29,7 @@ enum
 #define MENU_BATTLE_ICON_NOT                    1
 #define MENU_BATTLE_ICON_EFFECTIVE              2
 #define MENU_BATTLE_ICON_NO_EFFECT              3
+#define MENU_BATTLE_ICON_QUESTION               4
 
 #define TAG_HEALTHBOX_PLAYER1_TILE              55039
 #define TAG_HEALTHBOX_PLAYER2_TILE              55040
