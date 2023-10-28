@@ -113,6 +113,10 @@ extern const u8 gText_ABUTTONNext[];
 extern const u8 gText_ABUTTONNext_BBUTTONBack[];
 extern const u8 gText_Boy[];
 extern const u8 gText_Girl[];
+extern const u8 gText_Masc[];
+extern const u8 gText_Femme[];
+extern const u8 gText_HeHim[];
+extern const u8 gText_SheHer[];
 extern const struct OamData gOamData_AffineOff_ObjBlend_32x32;
 extern const struct OamData gOamData_AffineOff_ObjNormal_32x32;
 extern const struct OamData gOamData_AffineOff_ObjNormal_32x16;
@@ -1297,11 +1301,11 @@ static void Task_OakSpeech_ShowExpressionOptions(u8 taskId)
         sOakSpeechResources->textColor[0] = 1;
         sOakSpeechResources->textColor[1] = 2;
         sOakSpeechResources->textColor[2] = 3;
-        AddTextPrinterParameterized3(gTasks[taskId].tMenuWindowId, FONT_NORMAL, 8, 1, sOakSpeechResources->textColor, 0, gText_Boy);
+        AddTextPrinterParameterized3(gTasks[taskId].tMenuWindowId, FONT_NORMAL, 8, 1, sOakSpeechResources->textColor, 0, gText_Masc);
         sOakSpeechResources->textColor[0] = 1;
         sOakSpeechResources->textColor[1] = 2;
         sOakSpeechResources->textColor[2] = 3;
-        AddTextPrinterParameterized3(gTasks[taskId].tMenuWindowId, FONT_NORMAL, 8, 17, sOakSpeechResources->textColor, 0, gText_Girl);
+        AddTextPrinterParameterized3(gTasks[taskId].tMenuWindowId, FONT_NORMAL, 8, 17, sOakSpeechResources->textColor, 0, gText_Femme);
         Menu_InitCursor(gTasks[taskId].tMenuWindowId, FONT_NORMAL, 0, 1, GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT) + 2, 2, 0);
         CopyWindowToVram(gTasks[taskId].tMenuWindowId, COPYWIN_FULL);
         gTasks[taskId].func = Task_OakSpeech_HandleExpressionInput;
@@ -1311,6 +1315,9 @@ static void Task_OakSpeech_ShowExpressionOptions(u8 taskId)
 static void Task_OakSpeech_AskPlayerPronouns(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
+
+    AddTextPrinterParameterized3(gTasks[taskId].tMenuWindowId, FONT_NORMAL, 8, 1, sOakSpeechResources->textColor, 0, gText_HeHim);
+    AddTextPrinterParameterized3(gTasks[taskId].tMenuWindowId, FONT_NORMAL, 8, 17, sOakSpeechResources->textColor, 0, gText_SheHer);
 
     if (tTrainerPicFadeState != 0)
     {
