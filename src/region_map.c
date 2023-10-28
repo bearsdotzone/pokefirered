@@ -3371,7 +3371,7 @@ static u8 GetSelectedMapSection(u8 whichMap, u8 layer, s16 y, s16 x)
 static void CreatePlayerIcon(u16 tileTag, u16 palTag)
 {
     sPlayerIcon = AllocZeroed(sizeof(struct PlayerIcon));
-    if (gSaveBlock2Ptr->playerGender == FEMALE)
+    if (gSaveBlock2Ptr->playerExpression == FEMININE)
         LZ77UnCompWram(sPlayerIcon_Leaf, sPlayerIcon->tiles);
     else
         LZ77UnCompWram(sPlayerIcon_Red, sPlayerIcon->tiles);
@@ -3404,7 +3404,7 @@ static void CreatePlayerIconSprite(void)
         .callback = SpriteCallbackDummy
     };
 
-    if (gSaveBlock2Ptr->playerGender == FEMALE)
+    if (gSaveBlock2Ptr->playerExpression == FEMININE)
         spritePalette.data = sPlayerIcon_LeafPal;
 
     LoadSpriteSheet(&spriteSheet);

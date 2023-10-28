@@ -567,10 +567,10 @@ static bool8 DoInitMailView(void)
         gPlttBufferFaded[BG_PLTT_ID(15) + 11] = sGfxHeaders[sMailViewResources->mailType].textpals[1];
 
         LoadPalette(sGfxHeaders[sMailViewResources->mailType].pal, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
-        gPlttBufferUnfaded[BG_PLTT_ID(0) + 10] = sGenderPals[gSaveBlock2Ptr->playerGender][0];
-        gPlttBufferFaded[BG_PLTT_ID(0) + 10] = sGenderPals[gSaveBlock2Ptr->playerGender][0];
-        gPlttBufferUnfaded[BG_PLTT_ID(0) + 11] = sGenderPals[gSaveBlock2Ptr->playerGender][1];
-        gPlttBufferFaded[BG_PLTT_ID(0) + 11] = sGenderPals[gSaveBlock2Ptr->playerGender][1];
+        gPlttBufferUnfaded[BG_PLTT_ID(0) + 10] = sGenderPals[gSaveBlock2Ptr->playerPronouns][0];
+        gPlttBufferFaded[BG_PLTT_ID(0) + 10] = sGenderPals[gSaveBlock2Ptr->playerPronouns][0];
+        gPlttBufferUnfaded[BG_PLTT_ID(0) + 11] = sGenderPals[gSaveBlock2Ptr->playerPronouns][1];
+        gPlttBufferFaded[BG_PLTT_ID(0) + 11] = sGenderPals[gSaveBlock2Ptr->playerPronouns][1];
         break;
     case 13:
         if (sMailViewResources->messageExists)

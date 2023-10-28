@@ -3309,7 +3309,7 @@ static void FlyOutFieldEffect_FlyOffWithBird(struct Task *task)
         objectEvent->inanimate = FALSE;
         objectEvent->hasShadow = FALSE;
         SetFlyBirdPlayerSpriteId(task->tBirdSpriteId, objectEvent->spriteId);
-        StartSpriteAnim(&gSprites[task->tBirdSpriteId], gSaveBlock2Ptr->playerGender * 2 + 1);
+        StartSpriteAnim(&gSprites[task->tBirdSpriteId], gSaveBlock2Ptr->playerExpression * 2 + 1);
         DoBirdSpriteWithPlayerAffineAnim(&gSprites[task->tBirdSpriteId], 0);
         gSprites[task->tBirdSpriteId].callback = SpriteCB_FlyBirdWithPlayer;
         CameraObjectReset2();
@@ -3405,7 +3405,7 @@ static void SpriteCB_FlyBirdLeaveBall(struct Sprite *sprite)
             sprite->affineAnims = sAffineAnims_FlyBirdBall;
             InitSpriteAffineAnim(sprite);
             StartSpriteAffineAnim(sprite, 0);
-            if (gSaveBlock2Ptr->playerGender == MALE)
+            if (gSaveBlock2Ptr->playerExpression == MASCULINE)
                 sprite->x = 128;
             else
                 sprite->x = 118;
@@ -3457,7 +3457,7 @@ static void SpriteCB_FlyBirdReturnToBall(struct Sprite *sprite)
             sprite->affineAnims = sAffineAnims_FlyBirdBall;
             InitSpriteAffineAnim(sprite);
             StartSpriteAffineAnim(sprite, 1);
-            if (gSaveBlock2Ptr->playerGender == MALE)
+            if (gSaveBlock2Ptr->playerExpression == MASCULINE)
                 sprite->x = 112;
             else
                 sprite->x = 100;
@@ -3547,7 +3547,7 @@ static void FlyInFieldEffect_BirdSwoopDown(struct Task *task)
         task->tBirdSpriteId = CreateFlyBirdSprite();
         StartFlyBirdSwoopDown(task->tBirdSpriteId);
         SetFlyBirdPlayerSpriteId(task->tBirdSpriteId, playerObj->spriteId);
-        StartSpriteAnim(&gSprites[task->tBirdSpriteId], gSaveBlock2Ptr->playerGender * 2 + 2);
+        StartSpriteAnim(&gSprites[task->tBirdSpriteId], gSaveBlock2Ptr->playerExpression * 2 + 2);
         DoBirdSpriteWithPlayerAffineAnim(&gSprites[task->tBirdSpriteId], 1);
         gSprites[task->tBirdSpriteId].callback = SpriteCB_FlyBirdWithPlayer;
     }

@@ -81,8 +81,8 @@
 
 #define NUM_TOWER_CHALLENGE_TYPES 4
 
-#define MALE   0
-#define FEMALE 1
+#define MASCULINE   0
+#define FEMININE 1
 #define GENDER_COUNT 2
 
 #define BARD_SONG_LENGTH       6

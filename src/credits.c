@@ -1369,7 +1369,7 @@ static void LoadPlayerOrRivalSprite(u8 whichScene)
         {
         case 0:
             // Player
-            if (gSaveBlock2Ptr->playerGender == MALE)
+            if (gSaveBlock2Ptr->playerExpression == MASCULINE)
             {
                 sprSheet.data = sPlayerMale_Tiles;
                 sprSheet.size = 0x3000;

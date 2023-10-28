@@ -1744,14 +1744,14 @@ static void DummyGenderIcon(void)
 }
 
 static const u8 sGenderColors[2][3] = {
-    [MALE]   = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_LIGHT_BLUE, TEXT_COLOR_BLUE},
-    [FEMALE] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_LIGHT_RED, TEXT_COLOR_RED}
+    [MASCULINE]   = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_LIGHT_BLUE, TEXT_COLOR_BLUE},
+    [FEMININE] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_LIGHT_RED, TEXT_COLOR_RED}
 };
 
 static void DrawGenderIcon(void)
 {
     u8 genderSymbol[2];
-    bool8 gender = MALE;
+    bool8 gender = MASCULINE;
 
     StringCopy(genderSymbol, gText_MaleSymbol);
 
@@ -1760,7 +1760,7 @@ static void DrawGenderIcon(void)
         if (sNamingScreen->monGender == MON_FEMALE)
         {
             StringCopy(genderSymbol, gText_FemaleSymbol);
-            gender = FEMALE;
+            gender = FEMININE;
         }
         AddTextPrinterParameterized3(sNamingScreen->windows[2], FONT_NORMAL, 0x68, 1, sGenderColors[gender], TEXT_SKIP_DRAW, genderSymbol);
     }
@@ -2047,27 +2047,27 @@ static bool8 IsWideLetter(u8 character)
 
 static void Debug_NamingScreenPlayer(void)
 {
-    DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, MON_MALE, 0, CB2_ReturnToFieldWithOpenMenu);
+    DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerExpression, MON_MALE, 0, CB2_ReturnToFieldWithOpenMenu);
 }
 
 static void Debug_NamingScreenBox(void)
 {
-    DoNamingScreen(NAMING_SCREEN_BOX, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, MON_MALE, 0, CB2_ReturnToFieldWithOpenMenu);
+    DoNamingScreen(NAMING_SCREEN_BOX, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerExpression, MON_MALE, 0, CB2_ReturnToFieldWithOpenMenu);
 }
 
 static void Debug_NamingScreenCaughtMon(void)
 {
-    DoNamingScreen(NAMING_SCREEN_CAUGHT_MON, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, MON_MALE, 0, CB2_ReturnToFieldWithOpenMenu);
+    DoNamingScreen(NAMING_SCREEN_CAUGHT_MON, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerExpression, MON_MALE, 0, CB2_ReturnToFieldWithOpenMenu);
 }
 
 static void Debug_NamingScreenNickname(void)
 {
-    DoNamingScreen(NAMING_SCREEN_NICKNAME, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, MON_MALE, 0, CB2_ReturnToFieldWithOpenMenu);
+    DoNamingScreen(NAMING_SCREEN_NICKNAME, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerExpression, MON_MALE, 0, CB2_ReturnToFieldWithOpenMenu);
 }
 
 static void Debug_NamingScreenRival(void)
 {
-    DoNamingScreen(NAMING_SCREEN_RIVAL, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, MON_MALE, 0, CB2_ReturnToFieldWithOpenMenu);
+    DoNamingScreen(NAMING_SCREEN_RIVAL, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerExpression, MON_MALE, 0, CB2_ReturnToFieldWithOpenMenu);
 }
 
 //--------------------------------------------------

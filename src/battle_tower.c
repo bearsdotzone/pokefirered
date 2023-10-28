@@ -1105,7 +1105,7 @@ static void SetPlayerBattleTowerRecord(void)
     struct BattleTowerRecord *playerRecord = &gSaveBlock2Ptr->battleTower.playerRecord;
     u8 battleTowerLevelType = gSaveBlock2Ptr->battleTower.battleTowerLevelType;
 
-    if (gSaveBlock2Ptr->playerGender != MALE)
+    if (gSaveBlock2Ptr->playerPronouns != MASCULINE)
     {
         trainerClass = sFemaleTrainerClasses[(gSaveBlock2Ptr->playerTrainerId[0] + gSaveBlock2Ptr->playerTrainerId[1]
                                               + gSaveBlock2Ptr->playerTrainerId[2] + gSaveBlock2Ptr->playerTrainerId[3]) % NELEMS(sFemaleTrainerClasses)];
@@ -1299,7 +1299,7 @@ static void Debug_FillEReaderTrainerWithPlayerData(void)
 
     ereaderTrainer = &gSaveBlock2Ptr->battleTower.ereaderTrainer;
 
-    if (gSaveBlock2Ptr->playerGender != MALE)
+    if (gSaveBlock2Ptr->playerPronouns != MASCULINE)
     {
         ereaderTrainer->trainerClass = sFemaleTrainerClasses[(gSaveBlock2Ptr->playerTrainerId[0] + gSaveBlock2Ptr->playerTrainerId[1]
                                                               + gSaveBlock2Ptr->playerTrainerId[2] + gSaveBlock2Ptr->playerTrainerId[3]) % NELEMS(sFemaleTrainerClasses)];

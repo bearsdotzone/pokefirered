@@ -316,7 +316,8 @@ struct BattleTowerData // Leftover from R/S
 struct SaveBlock2
 {
     /*0x000*/ u8 playerName[PLAYER_NAME_LENGTH + 1];
-    /*0x008*/ u8 playerGender; // MALE, FEMALE
+    /*0x008*/ u8 playerPronouns; // MASCULINE, FEMININE
+              u8 playerExpression;
     /*0x009*/ u8 specialSaveWarpFlags;
     /*0x00A*/ u8 playerTrainerId[TRAINER_ID_LENGTH];
     /*0x00E*/ u16 playTimeHours;

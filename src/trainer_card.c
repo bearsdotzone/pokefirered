@@ -280,13 +280,13 @@ static const u8 sTrainerPicOffsets[2][GENDER_COUNT][2] =
 {
     // Kanto
     {
-        [MALE]   = {13, 4}, 
-        [FEMALE] = {13, 4}
+        [MASCULINE]   = {13, 4}, 
+        [FEMININE] = {13, 4}
     },
     // Hoenn
     {
-        [MALE]   = {1, 0}, 
-        [FEMALE] = {1, 0}
+        [MASCULINE]   = {1, 0}, 
+        [FEMININE] = {1, 0}
     }
 };
 
@@ -294,19 +294,19 @@ static const u8 sTrainerPicFacilityClasses[][2] =
 {
     [CARD_TYPE_FRLG] = 
     {
-        [MALE]   = FACILITY_CLASS_RED, 
-        [FEMALE] = FACILITY_CLASS_LEAF
+        [MASCULINE]   = FACILITY_CLASS_RED, 
+        [FEMININE] = FACILITY_CLASS_LEAF
     },
     [CARD_TYPE_RSE] = 
     {
-        [MALE]   = FACILITY_CLASS_BRENDAN, 
-        [FEMALE] = FACILITY_CLASS_MAY
+        [MASCULINE]   = FACILITY_CLASS_BRENDAN, 
+        [FEMININE] = FACILITY_CLASS_MAY
     },
 };
 
 static const u8 sLinkTrainerPicFacilityClasses[GENDER_COUNT][NUM_LINK_TRAINER_CARD_CLASSES] = 
 {
-    [MALE] = 
+    [MASCULINE] = 
     {
         FACILITY_CLASS_COOLTRAINER_M, 
         FACILITY_CLASS_BLACK_BELT, 
@@ -317,7 +317,7 @@ static const u8 sLinkTrainerPicFacilityClasses[GENDER_COUNT][NUM_LINK_TRAINER_CA
         FACILITY_CLASS_TAMER, 
         FACILITY_CLASS_JUGGLER
     },
-    [FEMALE] = 
+    [FEMININE] = 
     {
         FACILITY_CLASS_COOLTRAINER_F,
         FACILITY_CLASS_CHANNELER, 
@@ -363,7 +363,7 @@ static const u8 sStarYOffsets[] = {7, 6, 0, 0};
 static const struct TrainerCard sLinkPlayerTrainerCardTemplate1 = 
 {
     .rse = {
-        .gender = MALE,
+        .gender = MASCULINE,
         .stars = 4,
         .hasPokedex = TRUE,
         .caughtAllHoenn = TRUE,
@@ -403,7 +403,7 @@ static const struct TrainerCard sLinkPlayerTrainerCardTemplate1 =
 static const struct TrainerCard sLinkPlayerTrainerCardTemplate2 = 
 {
     .rse = {
-        .gender = FEMALE,
+        .gender = FEMININE,
         .stars = 2,
         .hasPokedex = TRUE,
         .caughtAllHoenn = TRUE,
@@ -795,7 +795,7 @@ static void SetPlayerCardData(struct TrainerCard *trainerCard, u8 cardType)
     u32 playTime;
     u8 i;
 
-    trainerCard->rse.gender = gSaveBlock2Ptr->playerGender;
+    trainerCard->rse.gender = gSaveBlock2Ptr->playerExpression;
     trainerCard->rse.playTimeHours = gSaveBlock2Ptr->playTimeHours;
     trainerCard->rse.playTimeMinutes = gSaveBlock2Ptr->playTimeMinutes;
 
@@ -887,10 +887,10 @@ void TrainerCard_GenerateCardForLinkPlayer(struct TrainerCard *trainerCard)
         trainerCard->rse.stars++;
 
     id = ((u16)trainerCard->rse.trainerId) % NUM_LINK_TRAINER_CARD_CLASSES;
-    if (trainerCard->rse.gender == FEMALE)
-        trainerCard->facilityClass = sLinkTrainerPicFacilityClasses[FEMALE][id];
+    if (trainerCard->rse.gender == FEMININE)
+        trainerCard->facilityClass = sLinkTrainerPicFacilityClasses[FEMININE][id];
     else
-        trainerCard->facilityClass = sLinkTrainerPicFacilityClasses[MALE][id];
+        trainerCard->facilityClass = sLinkTrainerPicFacilityClasses[MASCULINE][id];
 
     trainerCard->stickers[0] = VarGet(VAR_HOF_BRAG_STATE);
     trainerCard->stickers[1] = VarGet(VAR_EGG_BRAG_STATE);
@@ -1490,9 +1490,9 @@ static bool8 SetTrainerCardBgsAndPals(void)
             LoadPalette(sKantoTrainerCardBadges_Pal, BG_PLTT_ID(3), sizeof(sKantoTrainerCardBadges_Pal));
         break;
     case 4:
-        if (sTrainerCardDataPtr->cardType == CARD_TYPE_RSE && sTrainerCardDataPtr->trainerCard.rse.gender != MALE)
+        if (sTrainerCardDataPtr->cardType == CARD_TYPE_RSE && sTrainerCardDataPtr->trainerCard.rse.gender != MASCULINE)
             LoadPalette(sHoennTrainerCardFemaleBg_Pal, BG_PLTT_ID(1), sizeof(sHoennTrainerCardFemaleBg_Pal));
-        else if (sTrainerCardDataPtr->trainerCard.rse.gender != MALE)
+        else if (sTrainerCardDataPtr->trainerCard.rse.gender != MASCULINE)
             LoadPalette(sKantoTrainerCardFemaleBg_Pal, BG_PLTT_ID(1), sizeof(sKantoTrainerCardFemaleBg_Pal));
         break;
     case 5:

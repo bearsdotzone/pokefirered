@@ -374,9 +374,9 @@ static void Task_DoPokeballSendOutAnim(u8 taskId)
     LoadBallGfx(ballId);
 
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
-        gender = gLinkPlayers[GetBattlerMultiplayerId(battlerId)].gender;
+        gender = gLinkPlayers[GetBattlerMultiplayerId(battlerId)].expression;
     else
-        gender = gSaveBlock2Ptr->playerGender;
+        gender = gSaveBlock2Ptr->playerExpression;
 
     ballSpriteId = CreateSprite(&gBallSpriteTemplates[ballId], 32, 80, 29);
     gSprites[ballSpriteId].data[0] = 0x80;

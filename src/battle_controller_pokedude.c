@@ -2331,7 +2331,7 @@ static const struct PokedudeBattlePartyInfo sParties_Battle[] =
         .species = SPECIES_RATTATA,
         .moves = { MOVE_TACKLE, MOVE_TAIL_WHIP, MOVE_HYPER_FANG, MOVE_QUICK_ATTACK },
         .nature = NATURE_LONELY,
-        .gender = MALE,
+        .gender = MASCULINE,
     },
     {
         .side = B_SIDE_OPPONENT,
@@ -2339,7 +2339,7 @@ static const struct PokedudeBattlePartyInfo sParties_Battle[] =
         .species = SPECIES_PIDGEY,
         .moves = { MOVE_TACKLE, MOVE_SAND_ATTACK, MOVE_GUST, MOVE_QUICK_ATTACK },
         .nature = NATURE_NAUGHTY,
-        .gender = MALE,
+        .gender = MASCULINE,
     },
     {0xFF}
 };
@@ -2352,7 +2352,7 @@ static const struct PokedudeBattlePartyInfo sParties_Status[] =
         .species = SPECIES_RATTATA,
         .moves = { MOVE_TACKLE, MOVE_TAIL_WHIP, MOVE_HYPER_FANG, MOVE_QUICK_ATTACK },
         .nature = NATURE_LONELY,
-        .gender = MALE,
+        .gender = MASCULINE,
     },
     {
         .side = B_SIDE_OPPONENT,
@@ -2360,7 +2360,7 @@ static const struct PokedudeBattlePartyInfo sParties_Status[] =
         .species = SPECIES_ODDISH,
         .moves = { MOVE_ABSORB, MOVE_SWEET_SCENT, MOVE_POISON_POWDER },
         .nature = NATURE_RASH,
-        .gender = MALE,
+        .gender = MASCULINE,
     },
     {0xFF}
 };
@@ -2373,7 +2373,7 @@ static const struct PokedudeBattlePartyInfo sParties_Matchups[] =
         .species = SPECIES_POLIWAG,
         .moves = { MOVE_WATER_GUN, MOVE_HYPNOSIS, MOVE_BUBBLE },
         .nature = NATURE_RASH,
-        .gender = MALE,
+        .gender = MASCULINE,
     },
     {
         .side = B_SIDE_PLAYER,
@@ -2381,7 +2381,7 @@ static const struct PokedudeBattlePartyInfo sParties_Matchups[] =
         .species = SPECIES_BUTTERFREE,
         .moves = { MOVE_CONFUSION, MOVE_POISON_POWDER, MOVE_STUN_SPORE, MOVE_SLEEP_POWDER },
         .nature = NATURE_RASH,
-        .gender = MALE,
+        .gender = MASCULINE,
     },
     {
         .side = B_SIDE_OPPONENT,
@@ -2389,7 +2389,7 @@ static const struct PokedudeBattlePartyInfo sParties_Matchups[] =
         .species = SPECIES_ODDISH,
         .moves = { MOVE_ABSORB, MOVE_SWEET_SCENT, MOVE_POISON_POWDER },
         .nature = NATURE_RASH,
-        .gender = MALE,
+        .gender = MASCULINE,
     },
     {0xFF}
 };
@@ -2402,7 +2402,7 @@ static const struct PokedudeBattlePartyInfo sParties_Catching[] =
         .species = SPECIES_BUTTERFREE,
         .moves = { MOVE_CONFUSION, MOVE_POISON_POWDER, MOVE_SLEEP_POWDER, MOVE_STUN_SPORE },
         .nature = NATURE_RASH,
-        .gender = MALE,
+        .gender = MASCULINE,
     },
     {
         .side = B_SIDE_OPPONENT,
@@ -2410,7 +2410,7 @@ static const struct PokedudeBattlePartyInfo sParties_Catching[] =
         .species = SPECIES_JIGGLYPUFF,
         .moves = { MOVE_SING, MOVE_DEFENSE_CURL, MOVE_POUND },
         .nature = NATURE_CAREFUL,
-        .gender = MALE,
+        .gender = MASCULINE,
     },
     {0xFF}
 };

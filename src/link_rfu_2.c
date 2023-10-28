@@ -2110,7 +2110,7 @@ void SetUnionRoomChatPlayerData(u32 numPlayers)
                 // Only trainerId is shifted by the number of children, so the active flag and gender
                 // are only ever set for the first child
                 partnerInfo |= ((PINFO_ACTIVE_FLAG
-                             | ((gLinkPlayers[gRfu.linkPlayerIdx[i]].gender & 1) << PINFO_GENDER_SHIFT)
+                             | ((gLinkPlayers[gRfu.linkPlayerIdx[i]].expression & 1) << PINFO_GENDER_SHIFT)
                              | (gLinkPlayers[gRfu.linkPlayerIdx[i]].trainerId & PINFO_TID_MASK)) << (numConnectedChildren * 8));
                 numConnectedChildren++;
                 if (numConnectedChildren == numPlayers - 1)

@@ -2068,7 +2068,7 @@ bool8 ScrCmd_setrespawn(struct ScriptContext * ctx)
 
 bool8 ScrCmd_checkplayergender(struct ScriptContext * ctx)
 {
-    gSpecialVar_Result = gSaveBlock2Ptr->playerGender;
+    gSpecialVar_Result = gSaveBlock2Ptr->playerPronouns;
     return FALSE;
 }
 

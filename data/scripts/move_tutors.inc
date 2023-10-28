@@ -360,8 +360,8 @@ EventScript_MimicDeclined::
 
 EventScript_MimicTaught::
 	checkplayergender
-	call_if_eq VAR_RESULT, MALE, EventScript_MimicTaughtMale
-	call_if_eq VAR_RESULT, FEMALE, EventScript_MimicTaughtFemale
+	call_if_eq VAR_RESULT, MASCULINE, EventScript_MimicTaughtMale
+	call_if_eq VAR_RESULT, FEMININE, EventScript_MimicTaughtFemale
 	release
 	end
 

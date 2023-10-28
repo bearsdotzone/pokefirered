@@ -2303,7 +2303,7 @@ static void Task_RunUnionRoom(u8 taskId)
 {
     u32 id = 0;
     s32 input = 0;
-    s32 playerGender = MALE;
+    s32 playerGender = MASCULINE;
     struct WirelessLink_URoom * uroom = sWirelessLinkMain.uRoom;
     s16 *taskData = gTasks[taskId].data;
 
@@ -2544,7 +2544,7 @@ static void Task_RunUnionRoom(u8 taskId)
                 {
                     uroom->playerSendBuffer[0] = IN_UNION_ROOM;
                     Rfu_SendPacket(uroom->playerSendBuffer);
-                    StringCopy(gStringVar4, gTexts_UR_IfYouWantToDoSomething[gLinkPlayers[0].gender]);
+                    StringCopy(gStringVar4, gTexts_UR_IfYouWantToDoSomething[gLinkPlayers[0].pronouns]);
                     uroom->state = UR_STATE_REQUEST_DECLINED;
                 }
                 else
@@ -2614,7 +2614,7 @@ static void Task_RunUnionRoom(u8 taskId)
             else if (uroom->partnerYesNoResponse == (ACTIVITY_DECLINE | IN_UNION_ROOM))
             {
                 uroom->state = UR_STATE_REQUEST_DECLINED;
-                GetURoomActivityRejectMsg(gStringVar4, sPlayerCurrActivity | IN_UNION_ROOM, gLinkPlayers[0].gender);
+                GetURoomActivityRejectMsg(gStringVar4, sPlayerCurrActivity | IN_UNION_ROOM, gLinkPlayers[0].pronouns);
                 sPlayerCurrActivity = ACTIVITY_NONE;
             }
         }
@@ -3085,7 +3085,7 @@ static bool32 HandleContactFromOtherPlayer(struct WirelessLink_URoom * uroom)
 {
     if (uroom->recvActivityRequest[0] != 0)
     {
-        s32 id = GetChatLeaderActionRequestMessage(gStringVar4, gLinkPlayers[1].gender, &uroom->recvActivityRequest[0], uroom);
+        s32 id = GetChatLeaderActionRequestMessage(gStringVar4, gLinkPlayers[1].pronouns, &uroom->recvActivityRequest[0], uroom);
         if (id == 0) // Error
         {
             return TRUE;
@@ -4042,7 +4042,7 @@ static void GetURoomActivityRejectMsg(u8 *dst, s32 activity, u32 playerGender)
 static void GetURoomActivityStartMsg(u8 *dst, u8 activity)
 {
     u8 mpId = GetMultiplayerId();
-    u8 gender = gLinkPlayers[mpId ^ 1].gender;
+    u8 gender = gLinkPlayers[mpId ^ 1].pronouns;
 
     switch (activity)
     {
@@ -4249,7 +4249,7 @@ static void StartScriptInteraction(void)
 static u8 GetLinkPlayerInfoFlags(s32 linkPlayer)
 {
     u8 retval = 0x80;
-    retval |= gLinkPlayers[linkPlayer].gender << 3;
+    retval |= gLinkPlayers[linkPlayer].expression << 3;
     retval |= gLinkPlayers[linkPlayer].trainerId & 7;
     return retval;
 }

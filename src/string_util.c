@@ -381,7 +381,7 @@ static u8 *ExpandPlaceholder_StringVar3(void)
 
 static u8 *ExpandPlaceholder_KunChan(void)
 {
-    if (gSaveBlock2Ptr->playerGender == MALE)
+    if (gSaveBlock2Ptr->playerPronouns == MASCULINE)
         return gExpandedPlaceholder_Kun;
     else
         return gExpandedPlaceholder_Chan;
@@ -391,7 +391,7 @@ static u8 *ExpandPlaceholder_RivalName(void)
 {
     if (gSaveBlock1Ptr->rivalName[0] == EOS)
     {
-        if (gSaveBlock2Ptr->playerGender == MALE)
+        if (gSaveBlock2Ptr->playerPronouns == MASCULINE)
             return gExpandedPlaceholder_Green;
         else
             return gExpandedPlaceholder_Red;

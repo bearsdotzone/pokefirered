@@ -572,12 +572,12 @@ static bool8 DoLoadBagGraphics(void)
         break;
     case 2:
         LoadCompressedPalette(gBagBgPalette, BG_PLTT_ID(0), 3 * PLTT_SIZE_4BPP);
-        if (!BagIsTutorial() && gSaveBlock2Ptr->playerGender != MALE)
+        if (!BagIsTutorial() && gSaveBlock2Ptr->playerExpression != MASCULINE)
             LoadCompressedPalette(gBagBgPalette_FemaleOverride, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
         sBagMenuDisplay->data[0]++;
         break;
     case 3:
-        if (BagIsTutorial() == TRUE || gSaveBlock2Ptr->playerGender == MALE)
+        if (BagIsTutorial() == TRUE || gSaveBlock2Ptr->playerExpression == MASCULINE)
             LoadCompressedSpriteSheet(&gSpriteSheet_BagMale);
         else
             LoadCompressedSpriteSheet(&gSpriteSheet_BagFemale);

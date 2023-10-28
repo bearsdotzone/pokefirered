@@ -771,7 +771,7 @@ void AnimTask_ThrowBallSpecial(u8 taskId)
     {
         x = 23;
         y = 11;
-        if (gSaveBlock2Ptr->playerGender == FEMALE)
+        if (gSaveBlock2Ptr->playerExpression == FEMININE)
             y = 13;
     }
 

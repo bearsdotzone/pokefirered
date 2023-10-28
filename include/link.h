@@ -164,7 +164,8 @@ struct LinkPlayer
     /* 0x10 */ u8 progressFlags; // (& 0x0F) is hasNationalDex, (& 0xF0) is hasClearedGame
     /* 0x11 */ u8 neverRead;
     /* 0x12 */ u8 progressFlagsCopy;
-    /* 0x13 */ u8 gender;
+    /* 0x13 */ u8 expression;
+               u8 pronouns;
     /* 0x14 */ u32 linkType;
     /* 0x18 */ u16 id; // battle bank in battles
     /* 0x1A */ u16 language;

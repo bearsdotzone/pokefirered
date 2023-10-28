@@ -594,8 +594,8 @@ static const u16 *const sOpponentMugshotsPals[MUGSHOTS_COUNT] =
 
 static const u16 *const sPlayerMugshotsPals[GENDER_COUNT] =
 {
-    [MALE]   = sMugshotPal_Red,
-    [FEMALE] = sMugshotPal_Green,
+    [MASCULINE]   = sMugshotPal_Red,
+    [FEMININE] = sMugshotPal_Green,
 };
 
 static const u16 sUnusedTrainerPalette[] = INCBIN_U16("graphics/battle_transitions/unused_trainer.gbapal");
@@ -1907,7 +1907,7 @@ static bool8 Mugshot_SetGfx(struct Task *task)
     GetBg0TilesDst(&tilemap, &tileset);
     CpuCopy16(sMugshotBanner_Gfx, tileset, sizeof(sMugshotBanner_Gfx));
     LoadPalette(sOpponentMugshotsPals[task->tMugshotId], BG_PLTT_ID(15), PLTT_SIZE_4BPP);
-    LoadPalette(sPlayerMugshotsPals[gSaveBlock2Ptr->playerGender], BG_PLTT_ID(15) + 10, PLTT_SIZEOF(16 - 10));
+    LoadPalette(sPlayerMugshotsPals[gSaveBlock2Ptr->playerExpression], BG_PLTT_ID(15) + 10, PLTT_SIZEOF(16 - 10));
     
     for (i = 0; i < 20; i++)
         for (j = 0; j < 32; j++, mugshotsMap++)
@@ -2153,7 +2153,7 @@ static void Mugshots_CreateTrainerPics(struct Task *task)
                                                   sMugshotsOpponentCoords[mugshotId][0] - 32,
                                                   sMugshotsOpponentCoords[mugshotId][1] + 42,
                                                   0, gDecompressionBuffer);
-    task->tPlayerSpriteId = CreateTrainerSprite(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender, TRUE),
+    task->tPlayerSpriteId = CreateTrainerSprite(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerExpression, TRUE),
                                                 DISPLAY_WIDTH + 32,
                                                 106,
                                                 0, gDecompressionBuffer);

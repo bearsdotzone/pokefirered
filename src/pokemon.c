@@ -1581,14 +1581,14 @@ static const struct SpriteTemplate sTrainerBackSpriteTemplates[] =
 #define NUM_SECRET_BASE_CLASSES 5
 static const u8 sSecretBaseFacilityClasses[GENDER_COUNT][NUM_SECRET_BASE_CLASSES] = 
 {
-    [MALE] = {
+    [MASCULINE] = {
         FACILITY_CLASS_YOUNGSTER,
         FACILITY_CLASS_YOUNGSTER,
         FACILITY_CLASS_YOUNGSTER,
         FACILITY_CLASS_YOUNGSTER,
         FACILITY_CLASS_YOUNGSTER
     },
-    [FEMALE] = {
+    [FEMININE] = {
         FACILITY_CLASS_YOUNGSTER,
         FACILITY_CLASS_YOUNGSTER,
         FACILITY_CLASS_YOUNGSTER,
@@ -1819,7 +1819,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     SetBoxMonData(boxMon, MON_DATA_MET_GAME, &gGameVersion);
     value = ITEM_POKE_BALL;
     SetBoxMonData(boxMon, MON_DATA_POKEBALL, &value);
-    SetBoxMonData(boxMon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
+    SetBoxMonData(boxMon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerPronouns);
 
     if (fixedIV < USE_RANDOM_IVS)
     {
@@ -3678,7 +3678,7 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
     s32 i;
 
     SetMonData(mon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
-    SetMonData(mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
+    SetMonData(mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerPronouns);
     SetMonData(mon, MON_DATA_OT_ID, gSaveBlock2Ptr->playerTrainerId);
 
     for (i = 0; i < PARTY_SIZE; i++)
@@ -6189,7 +6189,7 @@ u16 GetUnionRoomTrainerPic(void)
     u8 linkId = GetMultiplayerId() ^ 1;
 
     u32 arrId = gLinkPlayers[linkId].trainerId % NUM_UNION_ROOM_CLASSES;
-    arrId |= gLinkPlayers[linkId].gender * NUM_UNION_ROOM_CLASSES;
+    arrId |= gLinkPlayers[linkId].expression * NUM_UNION_ROOM_CLASSES;
     return FacilityClassToPicIndex(gUnionRoomFacilityClasses[arrId]);
 }
 
@@ -6198,7 +6198,7 @@ u16 GetUnionRoomTrainerClass(void)
     u8 linkId = GetMultiplayerId() ^ 1;
 
     u32 arrId = gLinkPlayers[linkId].trainerId % NUM_UNION_ROOM_CLASSES;
-    arrId |= gLinkPlayers[linkId].gender * NUM_UNION_ROOM_CLASSES;
+    arrId |= gLinkPlayers[linkId].expression * NUM_UNION_ROOM_CLASSES;
     return gFacilityClassToTrainerClass[gUnionRoomFacilityClasses[arrId]];
 }
 

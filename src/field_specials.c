@@ -136,7 +136,7 @@ u8 GetPlayerTrainerIdOnesDigit(void)
 
 void BufferBigGuyOrBigGirlString(void)
 {
-    if (gSaveBlock2Ptr->playerGender == MALE)
+    if (gSaveBlock2Ptr->playerPronouns == MASCULINE)
         StringCopy(gStringVar1, gText_BigGuy);
     else
         StringCopy(gStringVar1, gText_BigGirl);
@@ -144,7 +144,7 @@ void BufferBigGuyOrBigGirlString(void)
 
 void BufferSonOrDaughterString(void)
 {
-    if (gSaveBlock2Ptr->playerGender == MALE)
+    if (gSaveBlock2Ptr->playerPronouns == FEMININE)
         StringCopy(gStringVar1, gText_Daughter);
     else
         StringCopy(gStringVar1, gText_Son);
