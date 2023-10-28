@@ -518,6 +518,7 @@ static const struct BattleInterfaceIcon sBattleInterfaceIcons[] =
     [MENU_BATTLE_ICON_EFFECTIVE] = { 16, 16, 0x04 },
     [MENU_BATTLE_ICON_NOT]       = { 16, 16, 0x02 },
     [MENU_BATTLE_ICON_NO_EFFECT] = { 16, 16, 0x06 },
+    [MENU_BATTLE_ICON_QUESTION]  = { 16, 16, 0x08 },
 };
 
 void BlitMenuBattleIcon(u8 windowId, u8 iconId, u16 x, u16 y)

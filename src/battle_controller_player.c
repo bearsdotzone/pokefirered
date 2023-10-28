@@ -1409,14 +1409,14 @@ static void MoveSelectionDisplayEffectiveness(void)
         SelectedPokemon = 1;
     }
 
-    // TODO On first encounter, don't display type effectiveness
+    // DebugPrintf("Pokemon is Index: %d", gBattlerPartyIndexes[GetBattlerPosition(SelectedPokemon)]);
 
-    // if(!(GetSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[SelectedPokemon].species), FLAG_GET_SEEN) & 1))
-    // {
-    //     StringCopy(gDisplayedStringBattle, gText_Confusion);
-    //     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_TYPE_EFFECTIVENESS);
-    //     return;
-    // }
+    if(1 & gSeenMask >> gBattlerPartyIndexes[GetBattlerPosition(SelectedPokemon)])
+    {
+        // DebugPrintf("Pokemon is unseen.");
+        BlitMenuBattleIcon(B_WIN_TYPE_EFFECTIVENESS, MENU_BATTLE_ICON_QUESTION, 0, 0);
+        return;
+    }
 
     moveInfo = (struct ChooseMoveStruct *)(&gBattleBufferA[gActiveBattler][4]);
     EffectivenessAtCursor = TypeCalc(moveInfo->moves[gMoveSelectionCursor[gActiveBattler]], gActiveBattler, GetBattlerPosition(SelectedPokemon));
