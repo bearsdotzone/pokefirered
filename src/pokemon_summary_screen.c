@@ -974,6 +974,14 @@ static const u16 * const sHpBarPals[] =
     }                                 \
 }
 
+static u8 NewNick[11];
+
+void CB2_ReturnAndName(void)
+{
+    SetMonData(&sMonSummaryScreen->monList.mons[GetLastViewedMonIndex()], MON_DATA_NICKNAME, NewNick);
+    CB2_ReturnToField();
+}
+
 void ShowPokemonSummaryScreen(struct Pokemon * party, u8 cursorPos, u8 lastIdx, MainCallback savedCallback, u8 mode)
 {
     sMonSummaryScreen = AllocZeroed(sizeof(struct PokemonSummaryScreenData));
@@ -1099,6 +1107,8 @@ bool32 IsPageFlipInput(u8 direction)
     return FALSE;
 }
 
+#include "naming_screen.h"
+
 static void Task_InputHandler_Info(u8 taskId)
 {
     switch (sMonSummaryScreen->state3270) {
@@ -1180,8 +1190,16 @@ static void Task_InputHandler_Info(u8 taskId)
             {
                 if (sMonSummaryScreen->curPageIndex == PSS_PAGE_INFO)
                 {
+                    GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_NICKNAME, NewNick);
+                    FreeAllWindowBuffers();
                     PlaySE(SE_SELECT);
                     sMonSummaryScreen->state3270 = PSS_STATE3270_ATEXIT_FADEOUT;
+                    DoNamingScreen(NAMING_SCREEN_CAUGHT_MON, NewNick,
+                           GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES),
+                           GetMonGender(&sMonSummaryScreen->currentMon),
+                           GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_PERSONALITY, NULL),
+                           CB2_ReturnAndName);
+                    
                 }
                 else if (sMonSummaryScreen->curPageIndex == PSS_PAGE_MOVES)
                 {
