@@ -2554,6 +2554,8 @@ static void BattleIntroDrawTrainersOrMonsSprites(void)
     u8 *ptr;
     s32 i;
 
+
+    gSeenMask = 0;
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES_OR_EGG) == SPECIES_NONE
@@ -2571,7 +2573,7 @@ static void BattleIntroDrawTrainersOrMonsSprites(void)
     }
 
     // DebugPrintf("gEnemyPartyCount: %d", gEnemyPartyCount);
-    // DebugPrintf("gSeenMask: %d", gSeenMask);
+    DebugPrintf("gSeenMask: %d", gSeenMask);
 
 
     if (gBattleControllerExecFlags)
